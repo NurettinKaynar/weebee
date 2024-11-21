@@ -6,8 +6,8 @@ const App = () => {
   return (
     <View className=" flex-1 flex items-center justify-center">
       <Text>index</Text>
-      <Link href="/profile" style={{ color: "blue" }}>
-        Profile Git
+      <Link href="/home" style={{ color: "blue" }}>
+        taba git
       </Link>
     </View>
   );
