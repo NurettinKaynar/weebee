@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "aora",
-    "slug": "aora",
+    "name": "Weebee",
+    "slug": "weebee",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "weebee",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
