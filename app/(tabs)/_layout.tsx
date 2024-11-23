@@ -3,6 +3,7 @@ import React from "react";
 import { Tabs, Redirect } from "expo-router";
 import { icons } from "@/constants";
 import TabIcon from "@/components/TabIcon";
+import { COLORS } from "@/constants/colors";
 const TabsLayout = () => {
   return (
     <>
@@ -10,18 +11,19 @@ const TabsLayout = () => {
         screenOptions={{
           tabBarShowLabel: false,
           headerShown: false,
+          tabBarActiveTintColor:COLORS.secondary[100],
+          tabBarInactiveTintColor: COLORS.gray[100],
+
           tabBarStyle: {
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "flex-start",
-            paddingTop: 5,
-            width: "100%",
-            height: 50,
-            backgroundColor: "white",
-            borderTopWidth: 0,
-            elevation: 0,
-            shadowOpacity: 0,
+           backgroundColor:COLORS.primary,
+           borderTopWidth:1,
+           borderTopColor:COLORS.gray[100],
+           height:60,
+           display:"flex",
+           flexDirection:"row",
+           justifyContent:"space-between",
+           alignItems:"flex-start",
+           paddingTop:15
           },
         }}>
         <Tabs.Screen
@@ -35,6 +37,51 @@ const TabsLayout = () => {
                 color={color}
                 focused={focused}
                 name="Ana Sayfa"
+              />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="create"
+          options={{
+            headerShown: false,
+            title: "Oluştur",
+            tabBarIcon: ({ color, focused }) => (
+              <TabIcon
+                icon={icons.plus}
+                color={color}
+                focused={focused}
+                name="Oluştur"
+              />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="profile"
+          options={{
+            headerShown: false,
+            title: "Profil",
+            tabBarIcon: ({ color, focused }) => (
+              <TabIcon
+                icon={icons.profile}
+                color={color}
+                focused={focused}
+                name="Profil"
+              />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="bookmark"
+          options={{
+            headerShown: false,
+            title: "Kayıtlar",
+            tabBarIcon: ({ color, focused }) => (
+              <TabIcon
+                icon={icons.bookmark}
+                color={color}
+                focused={focused}
+                name="Kayıtlar"
               />
             ),
           }}

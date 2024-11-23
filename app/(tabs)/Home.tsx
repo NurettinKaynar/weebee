@@ -1,10 +1,11 @@
 import { View, Text } from "react-native";
 import React from "react";
+import CustomButton from "@/components/CustomButton";
 
 const Home = () => {
   return (
     <View>
-      <Text>Home</Text>
+      <Text>Deneme</Text>
     </View>
   );
 };

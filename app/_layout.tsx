@@ -1,8 +1,9 @@
+import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
 import React, { useEffect } from "react";
+import Toast from "react-native-toast-message";
 import "../global.css";
-import { useFonts } from "expo-font";
-
+import GlobalProvider from "@/lib/context/GlobalProvider";
 const RootLayout = () => {
   const [fontsLoaded, error] = useFonts({
     "Poppins-Black": require("../assets/fonts/Poppins-Black.ttf"),
@@ -15,6 +16,7 @@ const RootLayout = () => {
     "Poppins-SemiBold": require("../assets/fonts/Poppins-SemiBold.ttf"),
     "Poppins-Thin": require("../assets/fonts/Poppins-Thin.ttf"),
   });
+
   useEffect(() => {
     async () => {
       if (error) throw error;
@@ -23,10 +25,14 @@ const RootLayout = () => {
     };
   }, [fontsLoaded, error]);
   return (
-    <Stack>
-      <Stack.Screen name="index" options={{ headerShown: false }} />
-      <Stack.Screen name="home" options={{ headerShown: false }} />
-    </Stack>
+    <GlobalProvider>
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      </Stack>
+      <Toast position="top" />
+    </GlobalProvider>
   );
 };
 
