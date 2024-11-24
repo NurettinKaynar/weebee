@@ -1,13 +1,14 @@
 import CustomButton from "@/components/CustomButton";
-import { useGLobalContext } from "@/lib/context/GlobalProvider";
+
 import { useRouter } from "expo-router";
 import React, { useEffect } from "react";
 import { Image, ScrollView, StatusBar, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { images } from "../constants";
+import { useGlobalContext } from "@/lib/context/GlobalProvider";
 
 const Welcome = () => {
-  const { isLoading, isLoggedIn }: any = useGLobalContext();
+  const { isLoading, isLoggedIn }: any = useGlobalContext();
   const router = useRouter();
 
   useEffect(() => {

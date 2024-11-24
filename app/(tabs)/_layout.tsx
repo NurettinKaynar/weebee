@@ -11,19 +11,19 @@ const TabsLayout = () => {
         screenOptions={{
           tabBarShowLabel: false,
           headerShown: false,
-          tabBarActiveTintColor:COLORS.secondary[100],
+          tabBarActiveTintColor: COLORS.secondary[100],
           tabBarInactiveTintColor: COLORS.gray[100],
 
           tabBarStyle: {
-           backgroundColor:COLORS.primary,
-           borderTopWidth:1,
-           borderTopColor:COLORS.gray[100],
-           height:60,
-           display:"flex",
-           flexDirection:"row",
-           justifyContent:"space-between",
-           alignItems:"flex-start",
-           paddingTop:15
+            backgroundColor: COLORS.primary,
+            borderTopWidth: 1,
+            borderTopColor: COLORS.gray[100],
+            height: 60,
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "flex-start",
+            paddingTop: 15,
           },
         }}>
         <Tabs.Screen
@@ -57,6 +57,21 @@ const TabsLayout = () => {
           }}
         />
         <Tabs.Screen
+          name="allPosts"
+          options={{
+            headerShown: false,
+            title: "Gönderiler",
+            tabBarIcon: ({ color, focused }) => (
+              <TabIcon
+                icon={icons.bookmark}
+                color={color}
+                focused={focused}
+                name="Gönderiler"
+              />
+            ),
+          }}
+        />
+        <Tabs.Screen
           name="profile"
           options={{
             headerShown: false,
@@ -67,21 +82,6 @@ const TabsLayout = () => {
                 color={color}
                 focused={focused}
                 name="Profil"
-              />
-            ),
-          }}
-        />
-        <Tabs.Screen
-          name="bookmark"
-          options={{
-            headerShown: false,
-            title: "Kayıtlar",
-            tabBarIcon: ({ color, focused }) => (
-              <TabIcon
-                icon={icons.bookmark}
-                color={color}
-                focused={focused}
-                name="Kayıtlar"
               />
             ),
           }}

@@ -7,7 +7,7 @@ interface Props {
 
 const GlobalContext = createContext({});
 
-export const useGLobalContext = () => useContext(GlobalContext);
+export const useGlobalContext = () => useContext(GlobalContext);
 
 const GlobalProvider: React.FC<Props> = (props) => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);

@@ -1,24 +1,23 @@
-import { View, Text, Image, FlatList, RefreshControl } from "react-native";
-import React, { useEffect, useState } from "react";
-import CustomButton from "@/components/CustomButton";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { images } from "@/constants";
+import {
+  View,
+  Text,
+  FlatList,
+  RefreshControl,
+  SafeAreaView,
+} from "react-native";
+import React, { useState } from "react";
+import useAppwrite from "@/lib/hooks/UseAppWrite";
+import { getAllPosts } from "@/lib/api/Posts/GetPostList";
+import DataNotFound from "@/components/DataNotFound";
 import HeaderComp from "@/components/HeaderComp";
 import SearchInput from "@/components/SearchInput";
 import Trending from "@/components/Trending";
-import DataNotFound from "@/components/DataNotFound";
-import { getAllPosts } from "@/lib/api/Posts/GetPostList";
-import useAppwrite from "@/lib/hooks/UseAppWrite";
 import VideoCard from "@/components/VideoCard";
-import { GetLatestPost } from "@/lib/api/Posts/GetLatestPost";
-import { router, usePathname } from "expo-router";
+import { router } from "expo-router";
 
-const Home = () => {
+const allPosts = () => {
   const { data: posts, refetch }: any = useAppwrite(getAllPosts);
-  const { data: latestPosts } = useAppwrite(GetLatestPost);
   const [refreshing, setRefreshing] = useState<boolean>(false);
-  const pathname = usePathname();
-  const [query, setQuery] = useState<string>("");
   const onRefresh = async () => {
     setRefreshing(true);
 
@@ -42,13 +41,6 @@ const Home = () => {
           <View className="flex flex-col gap-2 w-full">
             <View className="flex flex-col">
               <HeaderComp />
-              <SearchInput initialQuery={query} />
-            </View>
-            <View className="flex flex-col w-full justify-between ">
-              <Text className="text-white font-psemibold text-lg pt-10">
-                En Son Yüklenenler
-              </Text>
-              <Trending posts={latestPosts} />
             </View>
           </View>
         }
@@ -68,4 +60,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default allPosts;
